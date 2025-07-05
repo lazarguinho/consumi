@@ -2,107 +2,66 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-        <v-img
-          :src="logo"
-          class="my-3"
-          contain
-          height="200"
-        />
+        <v-img :src="logo" class="mt-8" contain height="200" />
       </v-col>
 
       <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify 3 Beta
+        <h1 class="text-h4 font-weight-bold mb-3">
+          Bem-vindo ao <span class="text-primary">Consumi</span> Beta 👋
         </h1>
 
-          <h4>Vite Preview</h4>
-
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a
-            href="https://community.vuetifyjs.com"
-            target="_blank"
-          >Discord Community</a>
+        <p class="text-subtitle-1 mt-2 mb-6">
+          Controle seus gastos, entenda seus hábitos e receba insights. Estamos só começando!
         </p>
       </v-col>
 
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-5">
-          What's next?
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-row>
+      <v-col class="mb-5" cols="12">
+        <v-btn color="primary" @click="irParaDashboard" size="x-large"> Começar </v-btn>
       </v-col>
 
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-5">
-          Important Links
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-row>
+      <v-col class="mb-5" cols="12">
+        <v-btn variant="text" class="mt-4" @click="enviarFeedback"> Enviar feedback 💬 </v-btn>
       </v-col>
 
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-5">
-          Ecosystem
-        </h2>
+      <v-col class="mb-5" cols="12">
+        <h2 class="headline font-weight-bold mb-5">Nossas Redes</h2>
 
         <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
+          <v-btn
+            icon
+            @click="abrirLink('https://instagram.com/consumi.app')"
+            :aria-label="'Instagram'"
+            class="mx-2"
           >
-            {{ eco.text }}
-          </a>
+            <v-icon>mdi-instagram</v-icon>
+          </v-btn>
+          <v-btn icon @click="abrirLink('https://twitter.com/consumiapp')" :aria-label="'Twitter'" class="mx-2">
+            <v-icon>mdi-twitter</v-icon>
+          </v-btn>
+          <v-btn
+            icon
+            @click="abrirLink('https://linkedin.com/company/consumi')"
+            :aria-label="'LinkedIn'"
+            class="mx-2"
+          >
+            <v-icon>mdi-linkedin</v-icon>
+          </v-btn>
         </v-row>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { defineComponent } from 'vue'
 
 // Logo
-import logo from '../assets/logo.svg'
+import logo from '../assets/consumi.png'
 
 export default defineComponent({
   name: 'HelloWorld',
 
-  data () {
+  data() {
     return {
       ecosystem: [
         {
